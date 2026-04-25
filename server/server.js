@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -5,7 +6,7 @@ const cors = require('cors');
 
 // create database connection and also create separate file then import and use that file
 
-mongoose.connect('mongodb+srv://bishal_db_user:2002@cluster-ecom.nodrtol.mongodb.net/')
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('MongoDB is connected')).catch(error => console.log(error));
 
 const app = express();
